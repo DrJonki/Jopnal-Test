@@ -118,7 +118,7 @@ namespace jd
                 //createChild("sky")->createComponent<SkySphere>(getRenderer())
                 //    .setMap(map).getModel();
 
-                auto& map = ResourceManager::get<Cubemap>("right.png", "left.png", "top.png", "bottom.png", "back.png", "front.png", true, false);
+                auto& map = ResourceManager::get<Cubemap>("right.png", "left.png", "top.png", "bottom.png", "back.png", "front.png", Texture::Flag::DisallowMipmapGeneration);
                 map.setFilterMode(TextureSampler::Filter::Bilinear);
 
                 createChild("sky")->createComponent<SkyBox>(getRenderer())

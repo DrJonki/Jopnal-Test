@@ -25,7 +25,7 @@ namespace jd
 
                     .setMesh(RM::getNamed<jop::RectangleMesh>("logoMesh", 0.5f))
                     .setMaterial(RM::getEmpty<jop::Material>("logoMat", true)
-                    .setMap(jop::Material::Map::Diffuse, RM::get<jop::Texture2D>("jop.png", true, true))
+                    .setMap(jop::Material::Map::Diffuse, RM::get<jop::Texture2D>("jop.png"))
                     .setReflection(jop::Color(0x222222FF), jop::Color::White, jop::Color::Black, jop::Color::Black));
             }
 
