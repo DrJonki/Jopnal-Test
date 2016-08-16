@@ -16,7 +16,7 @@ namespace jd
             using RM = ResourceManager;
 
             auto& mat = RM::getEmpty<Material>("mirrballmat", false);
-            mat.setAttributeField(MA::DefaultLighting | MA::EnvironmentMap);
+            mat.setAttributes(MA::DefaultLighting | MA::EnvironmentMap);
 
             auto& mesh = RM::getNamed<SphereMesh>("mirrorballmesh", 2.5f, 30);
 

@@ -18,6 +18,17 @@ namespace jd
             jop::Engine::exit();
         }
 
+        void resized(const unsigned int x, const unsigned int y) override
+        {
+            if (jop::Engine::hasCurrentScene())
+            {
+                auto cam = jop::Engine::getCurrentScene().findChild("cam");
+
+                if (!cam.expired())
+                    cam->getComponent<jop::Camera>()->setSize(x, y);
+            }
+        }
+
         void keyPressed(const int key, const int, const int mods) override
         {
             using jop::Keyboard;

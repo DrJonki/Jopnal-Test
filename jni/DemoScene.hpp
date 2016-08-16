@@ -89,7 +89,7 @@ namespace jd
                 auto& mat = RM::getEmpty<Material>("groundmat", true)
                     .setReflection(Material::Reflection::Ambient, Color(0x666666FF))
                     .setReflection(Material::Reflection::Specular, Color::Black)
-                    .setAttributeField(MA::DefaultLighting | MA::DiffuseMap);
+                    .setAttributes(MA::DefaultLighting | MA::DiffuseMap);
 
                 createChild("ground")->createComponent<Drawable>(getRenderer())
                     .setFlags(0xFFFFFFFF & ~jop::Drawable::CastShadows)
