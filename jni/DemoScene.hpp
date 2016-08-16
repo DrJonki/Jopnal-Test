@@ -61,7 +61,7 @@ namespace jd
                 getObject()->createComponent<Drawable>(getRenderer())
                     .setModel(Model(RM::getNamed<SphereMesh>("spotbulb", 0.25f, 10),
                                     RM::getEmpty<Material>("spotbulbmat", false)
-                                    .setReflection(Material::Reflection::Solid, Color::White * 2.f)));
+                                    )).setColor(Color::White * 2.f);
 
                 //auto& stream = findChild("pointlight1")->createComponent<SoundStream>();
                 //stream.setPath("pulse.wav");
@@ -126,8 +126,6 @@ namespace jd
             }
             
             Engine::getSubsystem<Window>()->setEventHandler<EventHandler>();
-
-            Keyboard::showVirtualKeyboard(true);
         }
 
         ~DemoScene() override

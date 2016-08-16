@@ -38,7 +38,7 @@
         },
         "MainRenderTarget": {
             "fResolutionScale": 1.0,
-            "bUseWindow": false,
+            "bUseWindow": true,
             "sClearColor": "000000FF",
             "bHDR": false
         },
@@ -46,7 +46,10 @@
             "uDefaultFilterMode": 0,
             "uDefaultRepeatMode": 0,
             "fDefaultAnisotropyLevel": 16.0,
-            "fDefaultBorderColor": "FFFFFFFF"
+            "fDefaultBorderColor": "FFFFFFFF",
+            "bAllowSRGB": false,
+            "bAllowMipmapGeneration": false,
+            "bAllowCompression": false
         },
         "Postprocessor": {
             "Tonemapping": {
@@ -57,7 +60,8 @@
                 "bEnabled": false,
                 "fThreshold": 1.0,
                 "uKernelSize": 5,
-                "fSubThresholdExponent": 4.0
+                "fSubThresholdExponent": 4.0,
+                "bHDR": true
             },
             "bEnable": false,
             "GammaCorrection": {
@@ -75,9 +79,9 @@
                 "sDefaultSpecular": "000000FF",
                 "sDefaultEmission": "000000FF"
             },
-            "uMaxPointLights": 8,
-            "uMaxDirectionalLights": 2,
-            "uMaxSpotLights": 2,
+            "uMaxPointLights": 2,
+            "uMaxDirectionalLights": 0,
+            "uMaxSpotLights": 0,
             "Light": {
                 "sDefaultAmbient": "000000FF",
                 "sDefaultDiffuse": "FFFFFFFF",

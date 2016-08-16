@@ -54,7 +54,7 @@ public:
         auto drawable = m_object->getComponent<jop::Drawable>();
 
         // To modify the drawable's material, we must create a new one to replace the default
-        newMaterial = &jop::ResourceManager::getEmpty<jop::Material>("newMaterial", true);
+        newMaterial = &jop::ResourceManager::getEmpty<jop::Material>("newMaterial", false).setAttributes(jop::Material::Attribute::DefaultLighting);
         drawable->getModel().setMaterial(*newMaterial);//.setMesh(jop::ResourceManager::getNamed<jop::SphereMesh>("ball", 0.5f, 20));
 
         // Set the diffuse reflection. This will automatically enable lighting
@@ -68,14 +68,13 @@ public:
     {
         m_object->rotate(0.5f * deltaTime, 1.f * deltaTime, 0.f);
 
-
         static float count = 0.f;
         //static bool toggle = true;
         count += deltaTime;
 
         //if (count >= 1.f)
         //{
-            newMaterial->setReflection(jop::Material::Reflection::Solid, jop::Color::White * ((std::sin(count * 8.f) + 1.f) / 3.f));
+            //newMaterial->setReflection(jop::Material::Reflection::Solid, jop::Color::White * ((std::sin(count * 8.f) + 1.f) / 3.f));
             //JOP_DEBUG_INFO(newMaterial->getAttributeField());
 
             //toggle = !toggle;
