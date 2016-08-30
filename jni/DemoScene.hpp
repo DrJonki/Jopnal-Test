@@ -24,7 +24,7 @@ namespace jd
         {
             m_sine += deltaTime;
 
-            getObject()->move(std::sin(m_sine) * deltaTime * 1.2f, std::sin(m_sine) * m_scale * deltaTime, std::cos(m_sine) * deltaTime * 1.2f);
+            getObject()->move(std::sin(m_sine) * deltaTime * 14.2f, std::sin(m_sine) * m_scale * deltaTime, std::cos(m_sine) * deltaTime * 14.2f);
         }
     };
 
@@ -178,15 +178,17 @@ namespace jd
             if (!cam.expired())
             {
                 const float speed = 4.f + 6.f * Keyboard::isKeyDown(Keyboard::LControl);
-
+                
                 if (Keyboard::isKeyDown(Keyboard::A) || Keyboard::isKeyDown(Keyboard::D))
                     cam->move((Keyboard::isKeyDown(Keyboard::D) ? 1.f : -1.f) * dt * speed * cam->getGlobalRight());
-
+                
                 if (Keyboard::isKeyDown(Keyboard::W) || Keyboard::isKeyDown(Keyboard::S))
                     cam->move((Keyboard::isKeyDown(Keyboard::W) ? 1.f : -1.f) * dt * speed * cam->getGlobalFront());
-
+                
                 if (Keyboard::isKeyDown(Keyboard::Space) || Keyboard::isKeyDown(Keyboard::LShift))
                     cam->move((Keyboard::isKeyDown(Keyboard::Space) ? 1.f : -1.f) * dt * speed * cam->getGlobalUp());
+
+                cam->lookAt(findChild("pointlight1")->getGlobalPosition());
             }
         }
     };

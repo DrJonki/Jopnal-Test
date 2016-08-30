@@ -1,4 +1,4 @@
-call android update project --target "android-17" --subprojects --path .
+call android update project --target "android-18" --subprojects --path .
 call ndk-build NDK_DEBUG=1
 call :CHECK_FAIL
 call ant clean
