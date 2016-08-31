@@ -25,7 +25,7 @@ namespace jd
                 auto cam = jop::Engine::getCurrentScene().findChild("cam");
 
                 if (!cam.expired())
-                    cam->getComponent<jop::Camera>()->setSize(x, y);
+                    cam->getComponent<jop::Camera>()->setSize(static_cast<float>(x), static_cast<float>(y));
             }
         }
 

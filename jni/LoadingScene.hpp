@@ -21,12 +21,12 @@ namespace jd
 
             // Logo
             {
-                createChild("logo")->move(-0.5f, 0.f, 0.f).createComponent<jop::Drawable>(getRenderer(), jop::RenderPass::Pass::AfterPost).getModel()
+                createChild("logo")->move(-0.5f, 0.f, 0.f).createComponent<jop::Sprite>(getRenderer(), jop::RenderPass::Pass::AfterPost).
 
-                    .setMesh(RM::getNamed<jop::RectangleMesh>("logoMesh", 0.5f))
-                    .setMaterial(RM::getEmpty<jop::Material>("logoMat", true)
-                    .setMap(jop::Material::Map::Diffuse, RM::get<jop::Texture2D>("jop.png"))
-                    /*.setReflection(jop::Color(0x222222FF), jop::Color::White, jop::Color::Black, jop::Color::Black)*/);
+                    //.setMesh(RM::getNamed<jop::RectangleMesh>("logoMesh", 0.5f))
+                    //.setMaterial(RM::getEmpty<jop::Material>("logoMat", true)
+                    //.setMap(jop::Material::Map::Diffuse, RM::get<jop::Texture2D>("jop.png"))
+                    setSize(glm::vec2(0.5f)).setTexture(RM::get<jop::Texture2D>("jop.png"), false);
             }
 
             // Lights
@@ -81,7 +81,6 @@ namespace jd
                 }
                 
                 text->setColor(newColor);
-                auto& mat = jop::ResourceManager::getExisting<jop::Material>("logoMat");
             }
 
             findChild("lightrot", true)->rotate(0.f, deltaTime * glm::half_pi<float>(), 0.f);
