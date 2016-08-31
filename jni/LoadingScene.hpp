@@ -21,12 +21,12 @@ namespace jd
 
             // Logo
             {
-                createChild("logo")->move(-0.5f, 0.f, 0.f).createComponent<jop::Drawable>(getRenderer()).getModel()
+                createChild("logo")->move(-0.5f, 0.f, 0.f).createComponent<jop::Drawable>(getRenderer(), jop::RenderPass::Pass::AfterPost).getModel()
 
                     .setMesh(RM::getNamed<jop::RectangleMesh>("logoMesh", 0.5f))
                     .setMaterial(RM::getEmpty<jop::Material>("logoMat", true)
                     .setMap(jop::Material::Map::Diffuse, RM::get<jop::Texture2D>("jop.png"))
-                    .setReflection(jop::Color(0x222222FF), jop::Color::White, jop::Color::Black, jop::Color::Black));
+                    /*.setReflection(jop::Color(0x222222FF), jop::Color::White, jop::Color::Black, jop::Color::Black)*/);
             }
 
             // Lights
@@ -44,7 +44,7 @@ namespace jd
 
             // Text
             {
-                createChild("text")->move(0.f, 0.f, 0.f).setScale(0.001f).createComponent<jop::Text>(getRenderer())
+                createChild("text")->move(0.f, 0.f, 0.f).setScale(0.001f).createComponent<jop::Text>(getRenderer(), jop::RenderPass::Pass::AfterPost)
 
                     .setFont(RM::get<jop::Font>("Furore.ttf", 64))
                     .setString("please stand by")
@@ -61,11 +61,6 @@ namespace jd
 
         ~LoadingScene() override
         {
-            using RM = jop::ResourceManager;
-
-            RM::unload<jop::RectangleMesh>("logoMesh");
-            RM::unload<jop::Material>("logoMat");
-            RM::unload<jop::Texture2D>("jop.png");
         }
 
         void postUpdate(const float deltaTime) override
@@ -87,7 +82,6 @@ namespace jd
                 
                 text->setColor(newColor);
                 auto& mat = jop::ResourceManager::getExisting<jop::Material>("logoMat");
-                mat.setReflection(jop::Material::Reflection::Diffuse, jop::Color(mat.getReflection(jop::Material::Reflection::Diffuse).colors, newColor.alpha));
             }
 
             findChild("lightrot", true)->rotate(0.f, deltaTime * glm::half_pi<float>(), 0.f);
