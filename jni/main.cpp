@@ -1,8 +1,16 @@
 #if 1
 
+
 #include "DemoScene.hpp"
 #include "LoadingScene.hpp"
 
+#ifdef JOP_OS_ANDROID
+extern "C" std::type_info const& __cxa_bad_typeid()
+{
+    // just return something
+    return typeid(void*);
+}
+#endif
 int main(int c, char* v[])
 {
 #ifdef JOP_OS_ANDROID
