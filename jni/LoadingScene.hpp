@@ -12,7 +12,6 @@ namespace jd
             : jop::Scene(typeid(LoadingScene).name())
         {
             using RM = jop::ResourceManager;
-            using MAT = jop::Material::Attribute;
 
             // Camera
             {
@@ -81,6 +80,7 @@ namespace jd
                 }
                 
                 text->setColor(newColor);
+                findChild("logo")->getComponent<jop::Sprite>()->setColor(newColor);
             }
 
             findChild("lightrot", true)->rotate(0.f, deltaTime * glm::half_pi<float>(), 0.f);

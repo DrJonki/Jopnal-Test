@@ -24,8 +24,8 @@ namespace jd
             auto root = getObject();
             root->setActive(false);
 
-            auto& baseMat = RM::getEmpty<Material>("spawnbasemat", true);
-            baseMat.setAttributes(Material::Attribute::DefaultLighting | Material::Attribute::DiffuseMap);
+            auto& baseMat = RM::getEmpty<Material>("spawnbasemat");
+            baseMat.setLightingModel(Material::LightingModel::Default).setMap(Material::Map::Diffuse0, Texture2D::getDefault());
 
             auto& baseMesh = RM::getNamed<SphereMesh>("spawnbasemesh", 0.35f, 20);
 

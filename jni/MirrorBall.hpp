@@ -12,11 +12,10 @@ namespace jd
             : jop::Component(obj, 0)
         {
             using namespace jop;
-            using MA = Material::Attribute;
             using RM = ResourceManager;
 
-            auto& mat = RM::getEmpty<Material>("mirrballmat", false);
-            mat.setAttributes(MA::DefaultLighting | MA::EnvironmentMap);
+            auto& mat = RM::getEmpty<Material>("mirrballmat");
+            mat.setLightingModel(Material::LightingModel::Default);
 
             auto& mesh = RM::getNamed<SphereMesh>("mirrorballmesh", 2.5f, 30);
 

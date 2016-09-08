@@ -41,7 +41,6 @@ namespace jd
         {
             using namespace jop;
             using RM = ResourceManager;
-            using MA = Material::Attribute;
 
             ResourceManager::beginLoadPhase();
             //getWorld<3>().setDebugMode(true);
@@ -60,7 +59,7 @@ namespace jd
 
                 getObject()->createComponent<Drawable>(getRenderer())
                     .setModel(Model(RM::getNamed<SphereMesh>("spotbulb", 0.25f, 10),
-                                    RM::getEmpty<Material>("spotbulbmat", false)
+                                    RM::getEmpty<Material>("spotbulbmat")
                                     )).setColor(Color::White * 2.f);
 
                 //auto& stream = findChild("pointlight1")->createComponent<SoundStream>();
@@ -86,10 +85,11 @@ namespace jd
 
             // Ground
             {
-                auto& mat = RM::getEmpty<Material>("groundmat", true)
+                auto& mat = RM::getEmpty<Material>("groundmat")
                     .setReflection(Material::Reflection::Ambient, Color(0x666666FF))
                     .setReflection(Material::Reflection::Specular, Color::Black)
-                    .setAttributes(MA::DefaultLighting | MA::DiffuseMap);
+                    .setLightingModel(Material::LightingModel::Default)
+                    .setMap(jop::Material::Map::Diffuse0, Texture2D::getDefault());
 
                 createChild("ground")->createComponent<Drawable>(getRenderer())
                     .setFlags(0xFFFFFFFF & ~jop::Drawable::CastShadows)
