@@ -25,7 +25,7 @@ namespace jd
             root->setActive(false);
 
             auto& baseMat = RM::getEmpty<Material>("spawnbasemat");
-            baseMat.setLightingModel(Material::LightingModel::Default).setMap(Material::Map::Diffuse0, Texture2D::getDefault());
+            baseMat.setLightingModel(Material::LightingModel::Gouraud).setMap(Material::Map::Diffuse0, Texture2D::getDefault()).setShininess(128).setReflection(Material::Reflection::Specular, Color::White);
 
             auto& baseMesh = RM::getNamed<SphereMesh>("spawnbasemesh", 0.35f, 20);
 

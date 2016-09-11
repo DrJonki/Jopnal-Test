@@ -188,7 +188,7 @@ namespace jd
                 if (Keyboard::isKeyDown(Keyboard::Space) || Keyboard::isKeyDown(Keyboard::LShift))
                     cam->move((Keyboard::isKeyDown(Keyboard::Space) ? 1.f : -1.f) * dt * speed * cam->getGlobalUp());
 
-                cam->lookAt(findChild("pointlight1")->getGlobalPosition());
+                //cam->lookAt(findChild("pointlight1")->getGlobalPosition());
             }
         }
     };
