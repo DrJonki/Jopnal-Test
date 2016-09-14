@@ -58,9 +58,9 @@ namespace jd
                     .setCastShadows(true).
 
                 getObject()->createComponent<Drawable>(getRenderer())
-                    .setModel(Model(RM::getNamed<SphereMesh>("spotbulb", 0.25f, 10),
+                    .setModel(RM::getNamed<SphereMesh>("spotbulb", 0.25f, 10),
                                     RM::getEmpty<Material>("spotbulbmat")
-                                    )).setColor(Color::White * 2.f);
+                                    ).setColor(Color::White * 2.f);
 
                 //auto& stream = findChild("pointlight1")->createComponent<SoundStream>();
                 //stream.setPath("pulse.wav");
@@ -93,7 +93,7 @@ namespace jd
 
                 createChild("ground")->createComponent<Drawable>(getRenderer())
                     .setFlags(0xFFFFFFFF & ~jop::Drawable::CastShadows)
-                    .setModel(Model(RM::getNamed<RectangleMesh>("groundmesh", 50.f), mat));
+                    .setModel(RM::getNamed<RectangleMesh>("groundmesh", 50.f), mat);
 
                 RigidBody::ConstructInfo info(RM::getNamed<InfinitePlaneShape>("groundshape"));
                 info.restitution = 1.f;

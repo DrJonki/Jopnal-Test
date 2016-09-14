@@ -20,7 +20,7 @@ namespace jd
 
             // Logo
             {
-                createChild("logo")->move(-0.5f, 0.f, 0.f).createComponent<jop::Sprite>(getRenderer(), jop::RenderPass::Pass::AfterPost).
+                createChild("logo")->move(-0.5f, 0.f, 0.f).createComponent<jop::Sprite>(getRenderer(), jop::RenderPass::Pass::AfterPost, jop::RenderPass::DefaultWeight).
 
                     //.setMesh(RM::getNamed<jop::RectangleMesh>("logoMesh", 0.5f))
                     //.setMaterial(RM::getEmpty<jop::Material>("logoMat", true)
@@ -43,7 +43,7 @@ namespace jd
 
             // Text
             {
-                createChild("text")->move(0.f, 0.f, 0.f).setScale(0.001f).createComponent<jop::Text>(getRenderer(), jop::RenderPass::Pass::AfterPost)
+                createChild("text")->move(0.f, 0.f, 0.f).setScale(0.001f).createComponent<jop::Text>(getRenderer(), jop::RenderPass::Pass::AfterPost, jop::RenderPass::DefaultWeight)
 
                     .setFont(RM::get<jop::Font>("Furore.ttf", 64))
                     .setString("please stand by")

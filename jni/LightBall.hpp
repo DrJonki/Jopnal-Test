@@ -27,7 +27,7 @@ namespace jd
 
             auto root = getObject();
 
-            root->createComponent<Drawable>(rend).setModel(Model(m_mesh, m_mat));
+            root->createComponent<Drawable>(rend).setModel(m_mesh, m_mat);
 
             root->createComponent<LightSource>(rend, LightSource::Type::Point).setAttenuation(0.f).setIntensity(Color::Black, Color::Green, Color::Green).setCastShadows(true);
 
@@ -76,7 +76,7 @@ namespace jd
                 auto randPointXZ = r.insideCircle(25.f);
                 auto randHeight = r.range(-2.5f, 2.5f);
 
-                getObject()->createChild("asdf")->setScale(0.25f).setIgnoreTransform(Object::Scale).setPosition(randPointXZ.x, randHeight, randPointXZ.y).createComponent<Drawable>(m_rend).setModel(Model(m_mesh, m_mat));
+                getObject()->createChild("asdf")->setScale(0.25f).setIgnoreTransform(Object::Scale).setPosition(randPointXZ.x, randHeight, randPointXZ.y).createComponent<Drawable>(m_rend).setModel(m_mesh, m_mat);
 
                 m_elapsed = 0.f;
             }
